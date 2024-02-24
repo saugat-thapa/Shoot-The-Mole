@@ -1,0 +1,81 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@700&family=Single+Day&display=swap");
+* {
+  cursor: url("/src/images/crosshair.png"), crosshair;
+  user-select: none;
+}
+
+body {
+  background-color: rgb(135, 238, 71);
+  color: rgb(248, 53, 118);
+  font-size: 100px;
+  text-align: center;
+
+  overflow: hidden;
+}
+
+.status {
+  padding-left: 35%;
+  padding-right: 35%;
+}
+
+.score {
+  float: left;
+}
+
+.time {
+  float: right;
+}
+
+h1 {
+  font-size: 75%;
+  font-family: "Single Day";
+  margin-bottom: 0px;
+  margin-top: 30px;
+}
+
+h2 {
+  font-size: 50%;
+  font-family: "Josefin Sans";
+
+  margin-top: 10px;
+  margin-bottom: 0px;
+}
+
+button {
+  font-family: "Josefin Sans";
+  margin-top: 80px;
+  background-color: rgba(248, 227, 6, 0.451);
+  font-size: 40px;
+  color: rgb(248, 53, 118);
+  border-radius: 10px;
+  padding-top: 5px;
+}
+
+button:hover {
+  transition: 0.5s;
+  background-color: rgb(176, 113, 240);
+  cursor: pointer;
+}
+
+.game {
+  position: absolute;
+  top: 35%;
+  width: 45%;
+  left: 0;
+  right: 0;
+  left: 28%;
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  image-resolution: 100px;
+  line-height: 200px;
+}
+
+.base {
+  width: 150px;
+  height: 150px;
+  line-height: 1000px;
+}
+
+.hidden {
+  display: none;
+}
