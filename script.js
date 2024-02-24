@@ -20,7 +20,7 @@ const game = function () {
 
 const time = function () {
   startButton.classList.add("hidden");
-  var timeLeft = 3;
+  var timeLeft = 10;
 
   function updateTimer() {
     timer.textContent = timeLeft;
