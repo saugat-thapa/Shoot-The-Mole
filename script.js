@@ -11,7 +11,7 @@ let timeup;
 document.querySelector("button").addEventListener("click", function start() {
   score.textContent = 0;
 
-  document.body.style.background = "rgb(135, 238, 71)";
+  document.body.style.background = "rgb(185, 235, 153)";
   time();
   game();
 });
@@ -82,5 +82,5 @@ const gameOver = function () {
   chosenHole.querySelector("img").src = "/src/images/hole.png";
   chosenHole.querySelector("img").removeEventListener("click", onclick);
   chosenHole = null;
-  document.body.style.background = "lime";
+  document.body.style.background = "rgb(146, 186, 122)";
 };
