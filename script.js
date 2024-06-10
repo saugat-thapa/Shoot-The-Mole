@@ -6,10 +6,12 @@ const startButton = document.querySelector("button");
 const gunShot = document.querySelector("#gunshot");
 let chosenHole;
 let chooseHoleIndex;
+let timeup;
 
 document.querySelector("button").addEventListener("click", function start() {
   score.textContent = 0;
-  document.body.style.background = "rgb(135, 238, 71";
+
+  document.body.style.background = "rgb(135, 238, 71)";
   time();
   game();
 });
@@ -19,8 +21,9 @@ const game = function () {
 };
 
 const time = function () {
+  timer.textcontent = 10;
   startButton.classList.add("hidden");
-  var timeLeft = 10;
+  var timeLeft = 9;
 
   function updateTimer() {
     timer.textContent = timeLeft;
@@ -39,13 +42,30 @@ const time = function () {
 
 const showMole = function () {
   chooseHoleIndex = Math.ceil(Math.random() * 6);
-  console.log(chooseHoleIndex);
   chosenHole = document.querySelector(`.hole--${chooseHoleIndex}`);
   chosenHole.querySelector("img").src = "/src/images/mole.png";
   chosenHole.querySelector("img").addEventListener("click", onclick);
+  moletime();
+};
+
+const moletime = function () {
+  clearInterval(timeup);
+  let msec = Math.random() * 400 + 400;
+
+  function mtimeup() {
+    clearInterval(timeup);
+    if (chosenHole.querySelector("img").src.endsWith("/images/mole.png")) {
+      chosenHole.querySelector("img").src = "/src/images/hole.png";
+      chosenHole.querySelector("img").removeEventListener("click", onclick);
+    }
+    chosenHole = null;
+    showMole();
+  }
+  timeup = setInterval(mtimeup, msec);
 };
 
 function onclick() {
+  clearInterval(timeup);
   gunShot.currentTime = 0;
   gunShot.play();
   if (chosenHole.querySelector("img").src.endsWith("/images/mole.png")) {
